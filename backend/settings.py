@@ -173,7 +173,7 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-ALLOWED_HOSTS = ['taskmanager.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # This is your local DB
