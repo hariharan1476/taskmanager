@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e#y4u@&nits%u4=#&(i^&tfrvu$=kdv^y7*iqx3&^sx1i)vrd_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = []
 
 TEMPLATES = [
@@ -173,7 +173,7 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-ALLOWED_HOSTS = ['your-app-name.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['taskmanager.onrender.com', 'localhost', '127.0.0.1']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # This is your local DB

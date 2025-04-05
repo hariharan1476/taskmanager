@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Upgrade pip first
-pip install --upgrade pip
+python -m pip install --upgrade pip==25.0.1
 
-# Then install requirements
+# Then install your dependencies
 pip install -r requirements.txt
