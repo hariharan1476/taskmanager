@@ -1,0 +1,9 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h3>{{ form.instance.pk|yesno:"Edit Task,Create Task" }}</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}

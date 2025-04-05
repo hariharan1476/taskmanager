@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">{{ object.title }}</h2>
+            <p class="card-text">
+                <strong>Description:</strong> {{ object.description }}
+            </p>
+            <p class="card-text">
+                <strong>Status:</strong> {% if object.completed %}✅ Completed{% else %}❌ Not Completed{% endif %}
+            </p>
+            <p class="card-text">
+                <strong>Created:</strong> {{ object.created_at|date:"F j, Y, g:i a" }}
+            </p>
+            <p class="card-text">
+                <strong>Due Date:</strong> {{ object.due_date|date:"F j, Y" }}
+            </p>
+            <a href="{% url 'task-update' object.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'task-delete' object.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'task-list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
