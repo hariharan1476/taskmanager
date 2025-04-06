@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from django.http import JsonResponse
 
+from tasks.views import AdminTaskView, PublicTaskListCreateView
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -30,12 +31,13 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+    path('admin-task/<int:pk>/', AdminTaskView.as_view(), name='admin-task'),
+
     # REST API endpoints
     path('api/', api_root),
     path('api/tasks/', include('tasks.api_urls')),
     path('auth/', include('rest_framework.urls')),
-
+    path('public-tasks/', PublicTaskListCreateView.as_view(), name='public-tasks'),
     # Swagger docs
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 

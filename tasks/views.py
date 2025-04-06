@@ -13,7 +13,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Task
 from .serializers import TaskSerializer
+from rest_framework import generics
+from .models import Task
+from .serializers import TaskSerializer
+from rest_framework.permissions import IsAdminUser, AllowAny
 
+# views.py
+class AdminTaskView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    permission_classes = [IsAdminUser]  # Only admin can update/delete
+
+class PublicTaskListCreateView(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    permission_classes = [AllowAny] 
 # -------------------------
 # ✅ Custom Task Form
 # -------------------------
