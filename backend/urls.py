@@ -13,7 +13,7 @@ from rest_framework import permissions
 
 # Root welcome API
 def api_root(request):
-    return JsonResponse({"message": "Welcome to the Cloud Task Manager API"})
+    return JsonResponse({"message": "Welcome to the Cloud Task Manager by HARI 1476"})
 
 # Swagger schema view
 schema_view = get_schema_view(
